@@ -1,0 +1,42 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.imagepickerlibrary">
+
+
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.CAMERA" />
+
+<uses-feature
+    android:name="android.hardware.camera"
+    android:required="true" />
+<!--android:icon="@mipmap/ic_launcher"
+android:theme="@style/AppTheme"-->
+<application
+    android:allowBackup="false"
+    android:label="@string/app_name"
+    android:supportsRtl="true">
+
+
+    <activity
+        android:name=".TempActivity"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.yalantis.ucrop.UCropActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+
+    <provider
+        android:name=".providers.LegacyCompatFileProvider"
+        android:authorities="com.imagepickerlibrary.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+    </provider>
+
+</application>
+
+</manifest>
